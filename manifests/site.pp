@@ -87,4 +87,28 @@ node default {
     ensure => link,
     target => $boxen::config::repodir
   }
+
+  # Custom modules
+  include iterm2::stable
+  include vagrant
+  include phantomjs::1_9_0
+  include virtualbox
+  include elasticsearch
+  include charles
+  include chrome::canary
+  include chrome::chromium
+  include opera
+  include opera::developer
+  include opera::mobile
+  include imageoptim
+
+  include sublime_text_2
+  sublime_text_2::package { 'Emmet':
+    source => 'sergeche/emmet-sublime'
+  }
+  
+  class { 'intellij':
+    edition => 'ultimate',
+    version => '13.1.2'
+  }
 }
